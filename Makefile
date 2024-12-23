@@ -1,8 +1,8 @@
 DIRNAME := $(shell basename $$(pwd))
 HOME := $(shell echo $$HOME)
 
-go:
-	bash go.sh
+# go:
+# 	bash go.sh
 
 test:
 	echo $(DIRNAME)
@@ -13,6 +13,8 @@ build:
 
 run:
 	docker run -it --rm --mount type=bind,src=$(HOME),dst=/home $(DIRNAME)
+
+go: build run
 
 clean:
 	docker container prune -f
