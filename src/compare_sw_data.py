@@ -295,7 +295,10 @@ def tabularize( data1, name1, data2, name2 ):
             table.append( row )
         table.append( totals )
         table.append( SEPARATING_LINE )
-    print( tabulate( table, headers ) )
+    tablefmt = 'simple'
+    # tablefmt = 'jira'
+    # tablefmt = 'github'
+    print( tabulate( table, headers, tablefmt=tablefmt ) )
 
 
 def mk_rp_list( d1, d2 ):
